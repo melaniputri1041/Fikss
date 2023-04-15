@@ -1,0 +1,39 @@
+﻿@model Barang
+@{
+    Layout = "NoLayout";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Add Barang</h3>
+            </div>
+
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post" action="Create">
+                    <div class="mb-3">
+                        <label>Nama</label>
+                        <input type="text" name="Name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Photo</label>
+                        <input type="file" name="Photo" class="form-control"
+                               accept=".png,.jpg,.jpeg" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Harga</label>
+                        <input type="text" name="Harga" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Stock</label>
+                        <input type="text" name="Stock" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model List<Pesanan>
+@{
+	Layout = "Adminlayout";
+}
+
+
+<form action="PesananMasuk" method="get">
+	<input type="text" name="search" class="form-control" placeholder="License plate">
+	<button type="submit" class="btn-success">Search</button>
+</form>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h3>Daftar Barang</h3>
+			</div>
+
+			<div class="card-body">
+
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Nama</th>
+							<th>Photo</th>
+							<th>Harga</th>
+							<th>NamaLengkap</th>
+							<th>Alamat</th>
+							<th>No telepon</th>
+							<th>Status Pemesanan</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var adminn in Model)
+						{
+							<tr>
+								<td>@adminn.Name</td>
+								<td>
+									<img src="~/Upload/@adminn.Photo" alt="@adminn.Name" height="100px" width="100px" />
+								</td>
+								<td>@adminn.Harga</td>
+								<td>@adminn.NamaLengkap</td>
+								<td>@adminn.Alamat</td>
+								<td>@adminn.NoTelepon</td>
+
+								<td>
+									<button>Baru</button>
+								</td>
+
+							</tr>
+
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

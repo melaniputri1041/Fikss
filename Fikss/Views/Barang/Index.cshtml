@@ -1,0 +1,222 @@
+﻿@*@model List<Barang>
+@{
+    Layout = "Adminlayout";
+}
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /*body {
+        background-image: url("img/images.jpg");
+    }*/
+
+    .card {
+        width: 300px;
+        /*height: 350px;*/
+        background: #efe;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .top-section {
+        height: 300px;
+        overflow: hidden;
+        background: #4ef;
+        position: relative;
+    }
+
+    #image-container {
+        width: 300px;
+        height: 230px;
+    }
+
+    .nav {
+        text-align: center;
+    }
+
+        .nav img {
+            width: 80px;
+            height: 50px;
+            border: 1px solid #ddd;
+            margin: 8px 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .nav img:hover {
+                border-color: #cea;
+            }
+
+    .price {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: #f1a;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .product-info {
+        padding: 24px;
+        text-align: center;
+    }
+
+    .name {
+        text-transform: uppercase;
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .btn {
+        display: block;
+        background: #009999;
+        text-align: center;
+        color: #fff;
+        padding: 10px;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+        .btn:hover {
+            background: #ff9933;
+        }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tampilan Foto Produk</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    @foreach (var adminn in Model)
+	{
+    <div class="card">
+        <div class="top-section">
+                <img width="300px" height="300px" src="~/upload/@adminn.Photo">
+        </div>
+        <div class="price"><label>@adminn.Harga</label></div>
+        <div class="product-info">
+            <div class="name"><label>@adminn.Name</label></div>
+            <div class="dis">8th Gen Intel Core i7-8750H</div>
+            <a class="btn" href="#">Add to Cart</a>
+        </div>
+    </div>
+     }
+</body>
+</html>
+
+
+
+*@
+
+@model List<Barang>
+@{
+    Layout = "Adminlayout";
+}
+
+<style>
+   .product-grid{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.product-grid .product-image{
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.product-grid .product-image a.image{display: block; }
+.product-grid .product-image img{
+    width: 100%;
+    height: auto;
+}
+.product-grid .product-discount-label{
+    color: #fff;
+    background: #A5BA8D;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 25px;
+    padding: 0 20px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.product-grid .product-links li:last-child a{ border-bottom: 1px solid #333; }
+.product-grid .product-links li a:hover{
+    color: #fff;
+    background: #333;
+}
+.product-grid .add-to-cart{
+    background: #A5BA8D;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 10px 26px;
+    position: absolute;
+    left: 0;
+    bottom: -60px;
+    transition: all 0.3s ease 0s;
+}
+.product-grid:hover .add-to-cart{ bottom: 0; }
+.product-grid .add-to-cart:hover{ text-shadow: 4px 4px rgba(0,0,0,0.2); }
+.product-grid .product-content{
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.1) inset;
+}
+.product-grid .title{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 0 0 7px;
+}
+.product-grid .title a{
+    color: #777;
+    transition: all 0.3s ease 0s;
+}
+.product-grid .title a:hover{ color: #a5ba8d; }
+.product-grid .price{
+    color: #0d0d0d;
+    font-size: 14px;
+    font-weight: 600;
+}
+.product-grid .price span{
+    color: #888;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+@@media screen and (max-width: 990px){
+    .product-grid{ margin-bottom: 30px; }
+}
+</style>
+
+@foreach (var adminn in Model)
+{
+<div class="col">
+    <div class="col-md-3 col-sm-6">
+        <div class="product-grid">
+            <div class="product-image">
+                <a href="#" class="image">
+                        <img width="300px" height="300px" src="~/upload/@adminn.Photo">
+                </a>
+                <span class="product-discount-label">-23%</span>
+                <a href="" class="add-to-cart">Add to Cart</a>
+            </div>
+            <div class="product-content">
+                    <h3 class="title"><a href="#">@adminn.Name</a></h3>
+                    <div class="price">$@adminn.Harga</div>
+            </div>
+        </div>
+    </div>
+</div>
+}
