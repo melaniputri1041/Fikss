@@ -15,6 +15,6 @@ namespace Fikss.Models
 		public string NamaLengkap { get; set; }
 		public string Alamat { get; set; }
 		public string NoTelepon { get; set; }
-		public string Status { get; set; }
+		public Status Status { get; set; }
 	}
 }

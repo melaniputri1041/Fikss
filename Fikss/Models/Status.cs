@@ -3,13 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Fikss.Models
 {
-    public class Admin
-    {
+	public class Status
+	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public string Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string FullName { get; set; }
-    }
+		public string Stat { get; set; }
+	}
 }

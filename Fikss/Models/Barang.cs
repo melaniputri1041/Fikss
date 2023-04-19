@@ -13,6 +13,7 @@ namespace Fikss.Models
         public int Harga { get; set; }
         public int Stock { get; set; }
 
+
         /*public Role role { get; set; }*/
     }
 }

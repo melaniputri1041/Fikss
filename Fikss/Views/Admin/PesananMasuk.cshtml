@@ -27,6 +27,7 @@
 							<th>Alamat</th>
 							<th>No telepon</th>
 							<th>Status Pemesanan</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -35,15 +36,17 @@
 							<tr>
 								<td>@adminn.Name</td>
 								<td>
-									<img src="~/Upload/@adminn.Photo" alt="@adminn.Name" height="100px" width="100px" />
+									<img width="300px" height="300px" src="~/upload/@adminn.Photo">
 								</td>
 								<td>@adminn.Harga</td>
 								<td>@adminn.NamaLengkap</td>
 								<td>@adminn.Alamat</td>
 								<td>@adminn.NoTelepon</td>
+								<td>@adminn.Status.Stat</td>
 
 								<td>
-									<button>Baru</button>
+									@*<button>Baru</button>*@
+									<a href="/Admin/Edit/@adminn.Id" class="btn btn-warning">Edit Status</a>
 								</td>
 
 							</tr>

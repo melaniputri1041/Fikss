@@ -44,8 +44,13 @@ namespace Fikss.Controllers
 
 		public IActionResult Pesan(int id)
         {
-            var barang = _context.Barangs.FirstOrDefault(x => x.Id == id);
+            ViewBag.Statuses = _context.Status.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Stat
+            });
 
+            var barang = _context.Barangs.FirstOrDefault(x => x.Id == id);
             return View(barang);
         }
         
@@ -61,12 +66,13 @@ namespace Fikss.Controllers
                 Photo = data.Photo,
                 NamaLengkap = data.NamaLengkap,
                 Alamat = data.Alamat,
-                NoTelepon = data.NoTelepon
+                NoTelepon = data.NoTelepon,
+                Status = _context.Status.FirstOrDefault(s => s.Id == 1.ToString())
             };
             _context.Pesanans.Add(pesanan);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("pesananmasuk","admin");
         }
 		/*public IActionResult Pesan()
 		{
