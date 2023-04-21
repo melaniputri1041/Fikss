@@ -35,6 +35,14 @@ namespace Fikss.Controllers
         {
             return View();
         }
+		public IActionResult Tentang()
+		{
+			return View();
+		}
+        public IActionResult Awal()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -72,7 +80,7 @@ namespace Fikss.Controllers
             _context.Pesanans.Add(pesanan);
             _context.SaveChanges();
 
-            return RedirectToAction("pesananmasuk","admin");
+            return RedirectToAction(/*"pesananmasuk","admin"*/"index","home");
         }
 		/*public IActionResult Pesan()
 		{

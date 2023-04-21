@@ -66,9 +66,6 @@ namespace Fikss.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Barangs");
@@ -106,6 +103,7 @@ namespace Fikss.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("StatusId")
+                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
@@ -154,7 +152,9 @@ namespace Fikss.Migrations
 
                     b.HasOne("Fikss.Models.Status", "Status")
                         .WithMany()
-                        .HasForeignKey("StatusId");
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Barang");
 

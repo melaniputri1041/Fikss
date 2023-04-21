@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fikss.Migrations
 {
     [DbContext(typeof(MysqlContext))]
-    [Migration("20230417163719_Mypro")]
-    partial class Mypro
+    [Migration("20230419175520_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,9 +69,6 @@ namespace Fikss.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Barangs");
@@ -109,6 +106,7 @@ namespace Fikss.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("StatusId")
+                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
@@ -157,7 +155,9 @@ namespace Fikss.Migrations
 
                     b.HasOne("Fikss.Models.Status", "Status")
                         .WithMany()
-                        .HasForeignKey("StatusId");
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Barang");
 

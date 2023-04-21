@@ -20,9 +20,9 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<th>Nama</th>
+							@*<th>Nama</th>
 							<th>Photo</th>
-							<th>Harga</th>
+							<th>Harga</th>*@
 							<th>NamaLengkap</th>
 							<th>Alamat</th>
 							<th>No telepon</th>
@@ -34,19 +34,19 @@
 						@foreach (var adminn in Model)
 						{
 							<tr>
-								<td>@adminn.Name</td>
+								@*<td>@adminn.Name</td>
 								<td>
 									<img width="300px" height="300px" src="~/upload/@adminn.Photo">
 								</td>
-								<td>@adminn.Harga</td>
+								<td>@adminn.Harga</td>*@
 								<td>@adminn.NamaLengkap</td>
 								<td>@adminn.Alamat</td>
 								<td>@adminn.NoTelepon</td>
 								<td>@adminn.Status.Stat</td>
 
 								<td>
-									@*<button>Baru</button>*@
 									<a href="/Admin/Edit/@adminn.Id" class="btn btn-warning">Edit Status</a>
+									<a href="/Admin/Detail/@adminn.Id" class="btn btn-warning">Detail Pesanan</a>
 								</td>
 
 							</tr>

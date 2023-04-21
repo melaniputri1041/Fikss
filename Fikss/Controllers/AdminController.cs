@@ -14,8 +14,12 @@ namespace Fikss.Controllers
 		{
 			_context = c;
 		}
+        public IActionResult Tentang()
+        {
+            return View();
+        }
 
-		public IActionResult PesananMasuk()
+        public IActionResult PesananMasuk()
 		{
 			var pesanan = _context.Pesanans.Include(p => p.Status).ToList();
 			return View(pesanan);
@@ -54,6 +58,12 @@ namespace Fikss.Controllers
 			_context.Pesanans.Update(data);
 			_context.SaveChanges();
 			return RedirectToAction("PesananMasuk");
+		}
+		public IActionResult Detail(int id)
+		{
+			var user = _context.Pesanans.FirstOrDefault(x => x.Id == id);
+
+			return View(user);
 		}
 	}
 }

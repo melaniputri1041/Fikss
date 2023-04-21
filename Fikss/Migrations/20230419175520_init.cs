@@ -8,7 +8,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Fikss.Migrations
 {
     /// <inheritdoc />
-    public partial class Mypro : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,8 +39,7 @@ namespace Fikss.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false),
                     Photo = table.Column<string>(type: "longtext", nullable: true),
-                    Harga = table.Column<int>(type: "int", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false)
+                    Harga = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,7 +73,7 @@ namespace Fikss.Migrations
                     NamaLengkap = table.Column<string>(type: "longtext", nullable: false),
                     Alamat = table.Column<string>(type: "longtext", nullable: false),
                     NoTelepon = table.Column<string>(type: "longtext", nullable: false),
-                    StatusId = table.Column<string>(type: "varchar(255)", nullable: true)
+                    StatusId = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,7 +88,8 @@ namespace Fikss.Migrations
                         name: "FK_Pesanans_Status_StatusId",
                         column: x => x.StatusId,
                         principalTable: "Status",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 

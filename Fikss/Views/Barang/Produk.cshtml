@@ -18,7 +18,7 @@
 							<th>Nama</th>
 							<th>Harga</th>
 							<th>Photo</th>
-							<th>Stock</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -28,12 +28,7 @@
 								<td>@adminn.Name</td>
 								<td>@adminn.Photo</td>
 								<td>@adminn.Harga</td>
-								<td>@adminn.Stock</td>
-								<td>
-									<a href="/Barang/Create/@adminn.Id"
-								   class="btn btn-warning">
-										Tambah
-									</a>
+								<td>		
 									<a href="/Barang/edit/@adminn.Id"
 								   class="btn btn-warning">
 										Edit
@@ -43,8 +38,13 @@
 								</td>
 							</tr>
 						}
+						
 					</tbody>
 				</table>
+				<a href="/Barang/Create/"
+				   class="btn btn-warning">
+					Tambah
+				</a> 
 			</div>
 		</div>
 	</div>
