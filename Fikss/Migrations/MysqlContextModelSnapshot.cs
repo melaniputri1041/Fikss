@@ -96,6 +96,10 @@ namespace Fikss.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BarangId");

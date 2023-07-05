@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fikss.Migrations
 {
     [DbContext(typeof(MysqlContext))]
-    [Migration("20230415050538_MyPro")]
-    partial class MyPro
+    [Migration("20230705022016_coba")]
+    partial class coba
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,6 +97,10 @@ namespace Fikss.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Photo")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");

@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Fikss.Migrations
 {
     /// <inheritdoc />
-    public partial class MyPro : Migration
+    public partial class coba : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -59,7 +59,8 @@ namespace Fikss.Migrations
                     BarangId = table.Column<int>(type: "int", nullable: false),
                     NamaLengkap = table.Column<string>(type: "longtext", nullable: false),
                     Alamat = table.Column<string>(type: "longtext", nullable: false),
-                    NoTelepon = table.Column<string>(type: "longtext", nullable: false)
+                    NoTelepon = table.Column<string>(type: "longtext", nullable: false),
+                    Status = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
