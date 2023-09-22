@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Fikss.Models
@@ -12,9 +12,13 @@ namespace Fikss.Models
 		public string? Photo { get; set; }
 		public int Harga { get; set; }
 		public Barang Barang { get; set; }
+		[Required]
 		public string NamaLengkap { get; set; }
+		[Required]
 		public string Alamat { get; set; }
+		[Required]
 		public string NoTelepon { get; set; }
-		public string Status { get; set; }
+		[Required]
+		public Status Status { get; set; }
 	}
 }

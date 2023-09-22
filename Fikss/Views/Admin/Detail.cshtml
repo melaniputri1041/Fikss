@@ -1,0 +1,39 @@
+﻿@model Pesanan
+@{
+	Layout = "Adminlayout";
+}
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="card">
+			<div class="card-header">
+				<h3>Detail Barang</h3>
+			</div>
+
+			<div class="card-body">
+
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Nama</th>
+							<th>Harga</th>
+							<th>NamaLengkap</th>
+							<th>Alamat</th>	
+							<th>No telepon</th>
+							
+						</tr>
+						<tr>
+							<td>@Model.Name</td>
+							<td>@Model.Harga</td>
+							<td>@Model.NamaLengkap</td>
+							<td>@Model.Alamat</td>
+							<td>@Model.NoTelepon</td>
+						</tr>
+					</thead>
+					<tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

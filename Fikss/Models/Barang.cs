@@ -7,11 +7,15 @@ namespace Fikss.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string? Photo { get; set; }
-        public int Harga { get; set; }
-        public int Stock { get; set; }
+		[Required]
+		public int Id { get; set; }
+		[Required]
+		public string Name { get; set; }
+		public string? Photo { get; set; }
+		[Required]
+		public int Harga { get; set; }
+
+
 
         /*public Role role { get; set; }*/
     }

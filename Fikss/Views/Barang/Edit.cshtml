@@ -1,6 +1,6 @@
 ﻿@model Barang
 @{
-    Layout = "NoLayout";
+    Layout = "AdminLayout";
 }
 
 <div class="row">
@@ -17,11 +17,11 @@
 						<label>Name</label>
 						<input type="text" name="Name" value="@Model.Name" class="form-control" />
 					</div>
-					<div class="mb-3">
+					@*<div class="mb-3">
 						<label>Photo</label>
 						<input type="file" name="Photo" value="@Model.Photo" class="form-control"
                                accept=".png,.jpg,.jpeg" />
-					</div>
+					</div>*@
 					<div class="mb-3">
 						<label>Harga</label>
 						<input type="text" name="Harga" value="@Model.Harga" class="form-control" />

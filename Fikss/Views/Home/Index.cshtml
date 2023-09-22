@@ -81,6 +81,18 @@
 }
 </style>
 
+<html>
+<body><center>
+        <h1>
+            Selamat Datang Di Melan's Bag
+        </h1>
+        <label>Berbelanja lah sesuka hati dengan sepenuh jiwa<br />
+            “Kualitas terbaik!”, “Paling aman!”, “Asli!”, “Dijamin!”
+        
+        </label>
+</center>
+
+
 @foreach (var adminn in Model)
 {
 <div class="col">
@@ -90,8 +102,7 @@
                 <a href="#" class="image">
                         <img width="300px" height="300px" src="~/upload/@adminn.Photo">
                 </a>
-                <span class="product-discount-label">-23%</span>
-                    <a href="/Home/Pesan/@adminn.Id" class="add-to-cart">Add to Cart</a>
+                    <a href="/Home/Pesan/@adminn.Id" class="add-to-cart">Pesan</a>
             </div>
             <div class="product-content">
                     <h3 class="title"><a href="#">@adminn.Name</a></h3>
@@ -101,3 +112,5 @@
     </div>
 </div>
 }
+</body>
+</html>

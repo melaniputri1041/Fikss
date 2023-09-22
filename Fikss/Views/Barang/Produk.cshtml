@@ -20,9 +20,9 @@
 					<thead>
 						<tr>
 							<th>Nama</th>
-							<th>Harga</th>
 							<th>Photo</th>
-							<th>Stock</th>
+							<th>Harga</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,9 +32,12 @@
 								<td>@adminn.Name</td>
 								<td>@adminn.Photo</td>
 								<td>@adminn.Harga</td>
-								<td>@adminn.Stock</td>
-								<td>
+								@*<td>@adminn.Stock</td>
+								<td>*@
 									
+=======
+								<td>		
+>>>>>>> 68422949cfa0767b400f7a56a473c00cff2ee571
 									<a href="/Barang/edit/@adminn.Id"
 								   class="btn btn-warning">
 										Edit
@@ -44,8 +47,13 @@
 								</td>
 							</tr>
 						}
+						
 					</tbody>
 				</table>
+				<a href="/Barang/Create/"
+				   class="btn btn-warning">
+					Tambah
+				</a> 
 			</div>
 		</div>
 	</div>

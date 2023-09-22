@@ -20,9 +20,9 @@ namespace Fikss.Migrations
 
             modelBuilder.Entity("Fikss.Models.Admin", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -39,6 +39,15 @@ namespace Fikss.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admins");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            FullName = "melani putri",
+                            Password = "1234",
+                            Username = "melani"
+                        });
                 });
 
             modelBuilder.Entity("Fikss.Models.Barang", b =>
@@ -56,9 +65,6 @@ namespace Fikss.Migrations
 
                     b.Property<string>("Photo")
                         .HasColumnType("longtext");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -96,15 +102,44 @@ namespace Fikss.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("StatusId")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BarangId");
 
+                    b.HasIndex("StatusId");
+
                     b.ToTable("Pesanans");
+                });
+
+            modelBuilder.Entity("Fikss.Models.Status", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Stat")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Status");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Stat = "Baru"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Stat = "Pesanan diterima"
+                        });
                 });
 
             modelBuilder.Entity("Fikss.Models.Pesanan", b =>
@@ -115,7 +150,15 @@ namespace Fikss.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Fikss.Models.Status", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Barang");
+
+                    b.Navigation("Status");
                 });
 #pragma warning restore 612, 618
         }
